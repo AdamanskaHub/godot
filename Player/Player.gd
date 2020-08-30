@@ -4,6 +4,8 @@ export (int) var speed = 160
 
 var velocity = Vector2.ZERO
 
+#signal pickable
+
 
 func get_input():
 	velocity = Vector2.ZERO

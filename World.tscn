@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Pickable.tscn" type="PackedScene" id=2]
 
 [node name="World" type="Node"]
 
@@ -9,10 +10,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.0196078, 0.376471, 0.14902, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 133.5, 148 )
+
+[node name="Remote" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera")
+
+[node name="Pickable" parent="." instance=ExtResource( 2 )]
+
+[node name="Pickable2" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 133.5, 148 )
+current = true
+smoothing_enabled = true
